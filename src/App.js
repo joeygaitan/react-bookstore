@@ -1,26 +1,58 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './components/LandingPage/Login';
+import Books from './components/BooksPage/Books';
+import Book from './components/BookPage/Book';
+import BookContext from './Context/bookstore-context'
+
 
 class App extends Component {
+  constructor(){
+    super(props);
+    this.state={
+      books:[],
+      Cart:[],
+      Admin: false
+    }
+  }
+
+  getBooks = () => {
+
+  }
+
+  deleteBook = () => {
+
+  }
+
+  updateBook = () => {
+
+  }
+
+  addBook = () => {
+
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BookContext.Provider value={{
+        books: this.state.books,
+        Cart: this.state.Cart,
+        Admin: this.state.Admin,
+        deleteBook: this.deleteBook,
+        updateBook: this.updateBook,
+        addBook: this.addBook,
+        getBooks: this.getBooks
+        }}>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route exact path = '/' component={Login}/>
+            <Route path = '/books' component={Books}/>
+            <Route path = '/books/:id' component={Book}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
+      </BookContext.Provider>
     );
   }
 }
