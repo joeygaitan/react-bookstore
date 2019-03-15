@@ -3,33 +3,37 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/LandingPage/Login';
 import Books from './components/BooksPage/Books';
 import Book from './components/BookPage/Book';
-import BookContext from './Context/bookstore-context'
+import BookContext from './context/bookstore-context'
 
 
 class App extends Component {
   constructor(){
-    super(props);
+    super();
     this.state={
       books:[],
       Cart:[],
       Admin: false
     }
   }
+  
+  componentDidMount = () => {
+
+  }
 
   getBooks = () => {
 
   }
 
-  deleteBook = () => {
+  deleteBook = (bookId) => {
 
   }
 
-  updateBook = () => {
+  updateBook = (book, bookId) => {
 
   }
 
-  addBook = () => {
-
+  addBook = (book) => {
+    console.log("book was added")
   }
 
   render() {

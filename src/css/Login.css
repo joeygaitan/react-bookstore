@@ -1,0 +1,56 @@
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: #c0c0c0;
+    content: center;
+}
+
+.col-1{
+    
+}
+
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Green */
+  .success {
+    border-color: blue;
+    color: blue;
+    border-radius: 12px;
+  }
+  
+  .success:hover {
+    background-color: lightskyblue;
+    color: white;
+  }
+
+.col-2{
+    
+}
+
+.btn {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Green */
+  .success {
+    border-color: blue;
+    color: blue;
+    border-radius: 12px;
+  }
+  
+  .success:hover {
+    background-color: lightskyblue;
+    color: white;
+  }
