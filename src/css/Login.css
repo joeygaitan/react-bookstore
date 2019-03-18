@@ -6,7 +6,8 @@
 }
 
 .col-1{
-    
+    text-align: right;
+    padding-right: 10px;
 }
 
 .btn {
@@ -31,7 +32,11 @@
   }
 
 .col-2{
-    
+    background-color: lightskyblue;
+    color: white;
+    text-align: left;
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
 .btn {
@@ -41,16 +46,4 @@
     padding: 14px 28px;
     font-size: 16px;
     cursor: pointer;
-  }
-  
-  /* Green */
-  .success {
-    border-color: blue;
-    color: blue;
-    border-radius: 12px;
-  }
-  
-  .success:hover {
-    background-color: lightskyblue;
-    color: white;
   }

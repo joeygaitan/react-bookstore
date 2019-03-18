@@ -20,20 +20,28 @@ class App extends Component {
 
   }
 
+  isAdmin = () => {
+    const { admin } = this.state;
+
+    this.setState({
+      Admin: !admin
+    })
+  }
+
   getBooks = () => {
 
   }
 
   deleteBook = (bookId) => {
-
+    console.log("deleted Book", bookId)
   }
 
   updateBook = (book, bookId) => {
-
+    console.log("book was udpated", book, bookId);
   }
 
   addBook = (book) => {
-    console.log("book was added")
+    console.log("book was added", book)
   }
 
   render() {

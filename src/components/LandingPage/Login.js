@@ -13,10 +13,11 @@ class Login extends Component {
                 <div className="container">
                     <div className="col-1">
                         <h2>Admin</h2>
-                        <Link><button className=" btn success">Login</button></Link>
+                        <Link to = '/books'><button className=" btn success">Login</button></Link>
                     </div>
                     <div className="col-2">
                         <h1>Customer</h1>
+                        <Link to = '/books'><button className=" btn success">Login</button></Link>
                     </div>
                 </div>
             </div>
