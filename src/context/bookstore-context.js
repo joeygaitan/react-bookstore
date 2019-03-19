@@ -8,10 +8,11 @@ export default React.createContext({
     getBooks: ()=>{},
     getBook: (bookId)=>{},
     deleteBook:(bookId)=>{},
-    updateBook:(book, bookId)=>{},
+    updateBook:(bookId, book)=>{},
     addBook:(book)=>{},
     isAdmin:()=>{},
     notAdmin:()=>{},
     addToCart:(bookId)=>{},
-    removeFromCart:(bookId)=>{}
+    removeFromCart:(bookId)=>{},
+    cartTotal:()=>{}
 });

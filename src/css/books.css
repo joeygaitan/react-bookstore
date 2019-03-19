@@ -13,7 +13,7 @@ p {
   cursor: pointer;
   border: 3px;
   border-style: solid;
-  border-color: #555555;
+  border-color: #221919;
   margin-bottom: 2px;
 }
 
@@ -23,11 +23,11 @@ p {
 }
 
 button {
-    background-color: #555555; /* Green */
+  background-color: #555555; /* Green */
   border: none;
   color: white;
   margin-right: 5px;
-  padding: 15px 32px;
+  padding: 13px 26px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

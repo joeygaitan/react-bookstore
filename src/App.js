@@ -49,8 +49,7 @@ class App extends Component {
     })
   }
 
-
-  getBook = async (bookId) =>{
+  getBook = async (bookId) => {
     axios.get(`http://localhost:8082/api/books/${bookId}`)
     .then(data => {
       console.log(data)
@@ -125,6 +124,13 @@ class App extends Component {
     })
   }
 
+  cartTotal = () => {
+    let total = this.state.Cart.reduce((acc,object)=>{
+      return Number(acc + object.price).toFixed(2)
+    })
+    return total
+  }
+
   render() {
     console.log(this.state.books);
     return (
@@ -140,7 +146,8 @@ class App extends Component {
         getBooks: this.getBooks,
         isAdmin: this.isAdmin,
         notAdmin: this.notAdmin,
-        addToCart: this.addToCart
+        addToCart: this.addToCart,
+        cartTotal: this.cartTotal
         }}>
       <BrowserRouter>
         <div>
@@ -148,7 +155,7 @@ class App extends Component {
             <Route exact path = '/' component={Login}/>
             <Route path = '/books' component={Books}/>
             <Route path = '/:id' component={Book}/>
-            <Route path = '/addBook' component={AddBook}/>
+            <Route path = '/books/AddBook' component={AddBook}/>
           </Switch>
         </div>
       </BrowserRouter>
