@@ -5,10 +5,6 @@ import bookStoreContext from '../../context/bookstore-context';
 
 class Login extends Component {
     static contextType = bookStoreContext
-    constructor(props) {
-        super(props);
-        this.state = {  }
-    }
 
     ifClicked = () => {
         this.context.isAdmin()

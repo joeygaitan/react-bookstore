@@ -10,21 +10,22 @@ class Books extends Component {
         super(props);
         this.state = {  }
     }
-
     render() { 
-        console.log(this.context.Admin, this.context.books)
         return ( 
             <div>
                 <Header context = {this.context}/>
+                <div className="container">
                 <dl>
                 {this.context.Admin ? <h1>Admin</h1>: <h1>Customer</h1>}
                 <br/>
-                {this.context.Admin ? this.context.books.map((book, id)=>{
-                    return (<Link to ={`/books/:${book.id}`}><dd>{book.title}</dd></Link>)
+                {this.context.Admin ? this.context.books.map(book=>{
+                    return (<p className="list" onClick={()=>{this.context.getBook(book.id)}}><Link to={`/:${book.id}`}>Title: {book.title}</Link></p>)
                 }): this.context.books.map((book, id)=>{
-                    return (<dd>{book.title}, {book.author}, ${book.price} <button onClick={()=>this.context.addToCart(book.id)}>add to cart</button></dd>)
+                    return (<Link to={`/:${book.id}`}><p className="list">Title: {book.title}, Author: {book.author}, Price: ${book.price} <button onClick={()=>{this.context.addToCart(book.id)}}>add to cart</button></p></Link>)
                 })}
                 </dl>
+                <div className="emptySpace"/>
+                </div>
             </div>
          );
     }

@@ -1,14 +1,17 @@
 import React from 'react'
 
 export default React.createContext({
-    Books:[],
+    books:[],
+    book: {},
     Cart:[],
     Admin: false,
     getBooks: ()=>{},
+    getBook: (bookId)=>{},
     deleteBook:(bookId)=>{},
     updateBook:(book, bookId)=>{},
     addBook:(book)=>{},
     isAdmin:()=>{},
     notAdmin:()=>{},
-    addToCart:()=>{}
+    addToCart:(bookId)=>{},
+    removeFromCart:(bookId)=>{}
 });
