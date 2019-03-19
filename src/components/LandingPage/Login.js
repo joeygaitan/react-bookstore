@@ -14,18 +14,22 @@ class Login extends Component {
         this.context.isAdmin()
     }
 
+    clicked = () => {
+        this.context.notAdmin()
+    }
+
     render() {
         console.log(this.context)
     return (
             <div>
                 <div className="container">
                     <div className="col-1">
-                        <h1>Admin</h1>
-                        <Link to ='/books'><button className=" btn success">Login</button></Link>
+                        <h1 >Admin</h1>
+                        <Link to ='/books'><button className=" btn success" onClick={this.ifClicked}>Login</button></Link>
                     </div>
                     <div className="col-2">
                         <h1>Customer</h1>
-                        <Link to ='/books'><button className=" btn success" onClick={this.ifClicked}>Login</button></Link>
+                        <Link to ='/books'><button className=" btn success" onClick={this.clicked}>Login</button></Link>
                     </div>
                 </div>
             </div>

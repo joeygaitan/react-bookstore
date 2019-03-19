@@ -12,6 +12,7 @@ class App extends Component {
     super();
     this.state={
       books:[],
+      book: {},
       Cart:[],
       Admin: false
     }
@@ -22,14 +23,18 @@ class App extends Component {
   }
 
   isAdmin = () => {
-    const { admin } = this.state;
-
     this.setState({
-      Admin: !admin
+      Admin: true
     })
   }
 
-  getBooks = () => {
+  notAdmin = () => {
+    this.setState({
+      Admin: false
+    })
+  }
+
+  getBooks = async () => {
     axios.get(`http://localhost:8082/api/books`)
     .then(data => {
       this.setState({
@@ -42,16 +47,79 @@ class App extends Component {
     })
   }
 
-  deleteBook = (bookId) => {
-    console.log("deleted Book", bookId)
+  getBook = async (bookId) =>{
+    axios.get(`http://localhost:8082/api/books/${bookId}`)
+    .then(data => {
+      this.setState({
+        book: {...data.data}
+      })
+    })
+    .catch(error=>{
+      console.log(error)
+      return null
+    })
   }
 
-  updateBook = (book, bookId) => {
+  deleteBook = async (bookId) => {
+    axios.delete(`http://localhost:8082/api/books/${bookId}`)
+    .then(data=>{
+      this.getBooks();
+    })
+    .catch(error=>{
+      console.log(error);
+      return null      
+    })
+  }
+
+  updateBook = async (book, bookId) => {
     console.log("book was udpated", book, bookId);
+    axios.put(`http://localhost:8082/api/books/${bookId}`, book)
+    .then(data=>{
+      this.getBooks()
+    })
+    .catch(error=>{
+      console.log(error)
+      return null
+    })
   }
 
   addBook = (book) => {
-    console.log("book was added", book)
+    axios.post('http://localhost:8082/api/books', book)
+    .then(data =>{
+      this.getBooks()
+    })
+    .catch(error=>{
+      console.log(error);
+      return null
+    })
+  }
+
+  addToCart = async (bookId) => {
+    let book = this.state.books.find(book=>{ return bookId === book.id})
+    console.log(book, bookId)
+    axios.patch(`http://localhost:8082/api/books/cart/add/${bookId}`)
+    .then(data=>{
+      this.setState({
+        Cart: [...this.state.Cart, data.data]
+      })
+    })
+    .catch(error=>{
+      console.log(error);
+      return null
+    })
+  }
+
+  removeFromCart = async (bookId) => {
+    let book = this.state.books.find(book=>{ return bookId === book.id})
+    axios.patch(`http://localhost:8082/api/books/cart/remove/${bookId}`)
+    .then(data=>{
+      let newCart = this.state.Cart.filter(cart=>{return book.id !== cart.id})
+      this.setState({Cart: [...newCart]})
+    })
+    .catch(error=>{
+      console.log(error);
+      return null
+    })
   }
 
   render() {
@@ -64,7 +132,10 @@ class App extends Component {
         deleteBook: this.deleteBook,
         updateBook: this.updateBook,
         addBook: this.addBook,
-        getBooks: this.getBooks
+        getBooks: this.getBooks,
+        isAdmin: this.isAdmin,
+        notAdmin: this.notAdmin,
+        addToCart: this.addToCart
         }}>
       <BrowserRouter>
         <div>

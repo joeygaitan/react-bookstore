@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import bookstoreContext from '../../context/bookstore-context.js';
 
-
-class Book extends Component {
-    static contextType = bookstoreContext
+class Cart extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+
+         }
     }
     render() { 
         return ( 
@@ -17,4 +16,4 @@ class Book extends Component {
     }
 }
  
-export default Book;
+export default Cart;
