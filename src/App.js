@@ -86,7 +86,8 @@ class App extends Component {
     })
   }
 
-  addBook = (book) => {
+  addBook = async (book) => {
+    console.log(book)
     axios.post('http://localhost:8082/api/books', book)
     .then(data =>{
       this.getBooks()
@@ -147,6 +148,7 @@ class App extends Component {
         isAdmin: this.isAdmin,
         notAdmin: this.notAdmin,
         addToCart: this.addToCart,
+        removeFromCart: this.removeFromCart,
         cartTotal: this.cartTotal
         }}>
       <BrowserRouter>
@@ -154,8 +156,8 @@ class App extends Component {
           <Switch>
             <Route exact path = '/' component={Login}/>
             <Route path = '/books' component={Books}/>
+            <Route exact path = '/AddBook' component={AddBook}/>
             <Route path = '/:id' component={Book}/>
-            <Route path = '/books/AddBook' component={AddBook}/>
           </Switch>
         </div>
       </BrowserRouter>

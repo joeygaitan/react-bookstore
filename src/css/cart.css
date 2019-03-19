@@ -1,0 +1,26 @@
+.cart{
+    background-color: white;
+    padding: 6px;
+    cursor: pointer;
+    border: 3px;
+    border-style: solid;
+    border-color: #221919;
+    position: absolute;
+    top: 70px;
+    left: 50px;
+}
+
+.cart dd{
+    text-align: left;
+    padding: 6px;
+    border: 3px;
+    border-style: solid;
+    border-color: lightgrey;
+  }
+
+  .cart dd:hover{
+    padding: 6px;
+    border: 3px;
+    border-style: solid;
+    border-color: beige;
+  }

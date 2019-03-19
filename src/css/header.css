@@ -51,3 +51,31 @@
       border: 1px solid #ccc;
     }
   }
+
+  .searchBar{
+      background-color: white;
+    padding: 6px;
+    cursor: pointer;
+    border: 3px;
+    border-style: solid;
+    border-color: #221919;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+  }
+
+  .searchBar dd{
+    text-align: right;
+    padding: 6px;
+    border: 3px;
+    border-style: solid;
+    border-color: lightgrey;
+  }
+
+  .searchBar dd:hover{
+    padding: 6px;
+    border: 3px;
+    border-style: solid;
+    border-color: beige;
+  }
+

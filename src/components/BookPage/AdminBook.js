@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookEdit from './BookEdit';
-
+import {Link} from 'react-router-dom';
 
 class AdminBook extends Component {
     constructor(props) {
@@ -12,7 +12,11 @@ class AdminBook extends Component {
         const { value } = this.state;
 
         this.setState({ value: !value})
-        console.log("clicked", this.state.value)
+        
+    }
+
+    deleted = () => {
+        this.props.context.deleteBook(this.props.context.book.id)
     }
 
     render() { 
@@ -24,7 +28,7 @@ class AdminBook extends Component {
             <a href={`${this.props.context.book.website}`}>website</a>
             <h4>{this.props.context.book.description}</h4>
             <br/>
-            <button onClick={()=>this.props.context.deleteBook(this.props.context.book.id)} style={{marginBottom: "5px;"}}>Delete Book</button>
+            <Link to = '/books'><button onClick={this.deleted} style={{marginBottom: "5px;"}}>Delete Book</button></Link>
 
             <button onClick={this.clicked}>Edit Book</button>
             {this.state.value?<BookEdit context={this.context}/> : null}
