@@ -4,6 +4,7 @@ import Login from './components/LandingPage/Login';
 import Books from './components/BooksPage/Books';
 import Book from './components/BookPage/Book';
 import BookContext from './context/bookstore-context'
+import axios from 'axios';
 
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
   }
   
   componentDidMount = () => {
-
+    this.getBooks();
   }
 
   isAdmin = () => {
@@ -29,7 +30,16 @@ class App extends Component {
   }
 
   getBooks = () => {
-
+    axios.get(`http://localhost:8082/api/books`)
+    .then(data => {
+      this.setState({
+        books: [...data.data]
+      })
+    })
+    .catch(error=>{
+      console.log(error)
+      return null
+    })
   }
 
   deleteBook = (bookId) => {
@@ -45,6 +55,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.books);
     return (
       <BookContext.Provider value={{
         books: this.state.books,
