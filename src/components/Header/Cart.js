@@ -9,20 +9,7 @@ class Cart extends Component {
          }
     }
 
-    total=()=>{
-        let sum = this.props.context.Cart.reducer((acc, object)=>{
-            return acc + Number(object.price)
-        }).toFixed(2)
-        console.log(sum)
-        return sum
-    }
-
-    render() { 
-        console.log(this.props.context)
-        console.log(this.props.context.Cart.reduce((accumilator, object)=>{
-            console.log(object.price, accumilator.price)
-            return Number(accumilator.price) + Number(object.price)
-            }))
+    render() {
         return ( 
             <div className="cart">
                 <dt>
@@ -30,10 +17,7 @@ class Cart extends Component {
                         return (<dd className>Book: {item.subtitle}, price: ${item.price}<button onClick={()=>this.props.context.removeFromCart(item.id)}>Remove From Cart</button></dd>)
                     })}
                 </dt>
-                <h1>Total ${this.props.context.Cart.reduce((acc = 0, object)=>{
-                    return acc + Number(object.price)
-                    })}
-                 </h1>
+                <h1>Total ${this.props.context.Cart.reduce((acc, object)=>{return acc + Number(object.price)},0)}</h1>
             </div>
          );
     }

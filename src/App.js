@@ -125,13 +125,6 @@ class App extends Component {
     })
   }
 
-  cartTotal = () => {
-    let total = this.state.Cart.reduce((acc,object)=>{
-      return Number(acc + object.price).toFixed(2)
-    })
-    return total
-  }
-
   render() {
     console.log(this.state.books);
     return (
@@ -148,8 +141,7 @@ class App extends Component {
         isAdmin: this.isAdmin,
         notAdmin: this.notAdmin,
         addToCart: this.addToCart,
-        removeFromCart: this.removeFromCart,
-        cartTotal: this.cartTotal
+        removeFromCart: this.removeFromCart
         }}>
       <BrowserRouter>
         <div>

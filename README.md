@@ -9,3 +9,9 @@ This application is using an api and context with the <br/>routes. Admin route w
 <br/>
 3.In Both repos please npm i.
 4.In both repos please do npm start(run the api first, so you can switch the port the react local server)
+--------
+##Tips
+--------
+How to deploy a website with github
+----------------------------------
+1.

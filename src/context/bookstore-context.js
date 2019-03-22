@@ -13,6 +13,5 @@ export default React.createContext({
     isAdmin:()=>{},
     notAdmin:()=>{},
     addToCart:(bookId)=>{},
-    removeFromCart:(bookId)=>{},
-    cartTotal:()=>{}
+    removeFromCart:(bookId)=>{}
 });
