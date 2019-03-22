@@ -12,7 +12,6 @@ class Book extends Component {
         this.state = {  }
     }
     render() { 
-        console.log(this.context.book)
         return ( 
             <div>
                 <Header context = {this.context} />

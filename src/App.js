@@ -126,7 +126,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.books);
     return (
       <BookContext.Provider value={{
         books: this.state.books,

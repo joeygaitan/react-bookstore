@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BookEdit from './BookEdit';
-import {Link} from 'react-router-dom';
+import {Link, withRouter } from 'react-router-dom';
 
 class AdminBook extends Component {
     constructor(props) {
@@ -17,6 +17,7 @@ class AdminBook extends Component {
 
     deleted = () => {
         this.props.context.deleteBook(this.props.context.book.id)
+        this.props.history.push('/books')
     }
 
     render() { 
@@ -28,7 +29,7 @@ class AdminBook extends Component {
             <a href={`${this.props.context.book.website}`}>website</a>
             <h4>{this.props.context.book.description}</h4>
             <br/>
-            <Link to = '/books'><button onClick={this.deleted} style={{marginBottom: "5px;"}}>Delete Book</button></Link>
+            <button onClick={this.deleted} style={{marginBottom: "5px;"}}>Delete Book</button>
 
             <button onClick={this.clicked}>Edit Book</button>
             {this.state.value?<BookEdit context={this.context}/> : null}
@@ -36,4 +37,4 @@ class AdminBook extends Component {
     }
 }
  
-export default AdminBook;
+export default withRouter(AdminBook);

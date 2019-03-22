@@ -7,7 +7,6 @@ class CustomerBook extends Component {
         this.state = {  }
     }
     render() { 
-        console.log(this.props.context.book)
         return ( 
         <div className="contain">
             <h1>Title: {this.props.context.book.title}</h1>

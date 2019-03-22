@@ -33,12 +33,9 @@ class Header extends Component {
     }
 
     render() { 
-        console.log(this.state.search, this.state.cartClicked)
         let filteredBooksTitleAuthor = this.props.context.books.filter((book)=>{
             return (book.title.toLowerCase().indexOf(this.state.search) !== -1 || book.author.toLowerCase().indexOf(this.state.search) !== -1);
         })
-        console.log(filteredBooksTitleAuthor)
-        
         return (
             <div>
                 <div className="topnav">
@@ -50,16 +47,16 @@ class Header extends Component {
 
                     <input type="text" placeholder="Search.." value={this.state.search}  onChange={this.updateSearch}/>
                 </div>
-                {this.state.cartClicked ? <Cart context= {this.props.context}/>: null}
-                {this.state.search !== '' ?
-                <div className='searchBar'>
-                    <dt>
-                        {filteredBooksTitleAuthor.map((book)=>{
-                            return <Link to={`/:${book.id}`}><dd className="theList">{book.author}, {book.title}</dd></Link>
-                        })}
-                    </dt>
-                </div> :null
-                }
+                    {this.state.cartClicked ? <Cart context= {this.props.context}/>: null}
+                    
+                    {this.state.search !== '' ?
+                    <div className='searchBar'>
+                        <dt>
+                            {filteredBooksTitleAuthor.map((book)=>{
+                                return <Link to={`/:${book.id}`}><dd className="theList">{book.author}, {book.title}</dd></Link>
+                            })}
+                        </dt>
+                    </div> :null}
             </div>
         );
     }
